@@ -8,8 +8,14 @@
 
 // if bmi > 30 return "Obese"
 
-function bmi(bmi = weight / height2) {
+function bmi(weight,height) {
+    
+    const bmi = weight / height / height
 
+    return bmi <= 18.5 ? "Underweight"
+    : bmi <= 25 ? "Normal"
+    : bmi <=30 ? "Overweight"
+    : "Obese"
 }
 
-console.log(bmi(10,1.8));
+// console.log(bmi(90,1.8));
