@@ -22,4 +22,4 @@ function sortByLength (array) {
 
 //   console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
 
-console.log(sortByLength([5,1,9,6]));
+// console.log(sortByLength([5,1,9,6]));
