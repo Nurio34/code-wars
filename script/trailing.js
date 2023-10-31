@@ -26,13 +26,18 @@ function zeros (n) {
     nFactorial = String(nFactorial)
     const arr = nFactorial.split("")
     const newArr = []
+    func()
+    return newArr.length
 
-    const lastNum = arr[arr.length-1]
-    if(arr[lastNum] == "0") {
-        newArr.push(lastNum)
-        console.log(lastNum);
+    function func() {
+        const lastNum = arr[arr.length-1]
+
+        if(lastNum === "0") {
+            newArr.push(lastNum)
+            arr.pop()
+            func()
+        }
     }
-    return newArr
 }
 
-console.log(zeros(10));
+// console.log(zeros(22));
