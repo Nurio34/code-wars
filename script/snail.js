@@ -49,5 +49,3 @@ snail = function (array) {
     Recrusion();
     return SnailArr.flat();
 };
-
-console.log(snail(test_1));
