@@ -13,6 +13,4 @@ function bubbleSort(arr) {
 
   return arr;
 }
-const bubbleSortarr1 = [45, -6, 8, 3, 44, 20];
-
-console.log(bubbleSort(bubbleSortarr1));
+const bubbleSortarr1 = [-6, 8, 3, 44, 20];
