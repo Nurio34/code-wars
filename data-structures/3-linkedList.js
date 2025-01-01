@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.head = null;
     this.size = 0;
@@ -78,6 +78,81 @@ class LinkedList {
     this.size++;
   }
 
+  delete(value) {
+    if (this.isEmpty()) return;
+
+    if (!this.isEmpty() && !value) {
+      this.size--;
+      return (this.head = this.head.next);
+    }
+
+    if (this.head.value === value) {
+      this.size--;
+      return (this.head = this.head.next);
+    }
+
+    let curr = this.head;
+
+    while (curr) {
+      if (curr.next.value === value) {
+        this.size--;
+        return (curr.next = curr.next.next);
+      }
+      curr = curr.next;
+    }
+  }
+
+  deleteFrom(position) {
+    if (this.isEmpty()) return;
+
+    if (position >= this.size) return;
+
+    if (position === 0 || !position) {
+      this.size--;
+      return (this.head = this.head.next);
+    }
+
+    let curr = this.head;
+
+    for (let i = 1; i < position; i++) {
+      curr = curr.next;
+    }
+
+    curr.next = curr.next.next;
+    this.size--;
+  }
+
+  findIndex(value) {
+    if (this.isEmpty() || !value) return console.log(-1);
+    let i = 0;
+    let curr = this.head;
+
+    while (curr) {
+      if (curr.value === value) return console.log(i);
+      curr = curr.next;
+      i++;
+    }
+
+    return console.log(-1);
+  }
+
+  reverse() {
+    let curr = this.head;
+    let next = null;
+
+    while (curr) {
+      const prev = curr.next;
+
+      if (prev === null) {
+        this.head = curr;
+      }
+      curr.next = next;
+      next = curr;
+
+      curr = prev;
+    }
+  }
+
   print() {
     let curr = this.head;
     let list = ``;
@@ -95,13 +170,3 @@ class LinkedList {
     console.log(list);
   }
 }
-
-const list = new LinkedList();
-list.prepend(10);
-list.prepend(20);
-list.prepend(3);
-list.append(100);
-list.prepend(1);
-list.append(22);
-list.insert("a", 2);
-list.print();
