@@ -46,6 +46,8 @@ export class LinkedListWithTail {
     this.size++;
   }
 
+  insert(value, index) {}
+
   deleteFromStart() {
     if (this.isEmpty()) return console.log("List is empty");
 
@@ -147,7 +149,19 @@ export class LinkedListWithTail {
     return console.log(`${value}'s not found in list`);
   }
 
-  findAt(index) {}
+  findAt(index) {
+    if (this.isEmpty()) return console.log("List is empty");
+    if (index < 0 || index >= this.size)
+      return console.log("There is not a value at that index");
+    if (!index) return console.log("You must provide index as argument");
+
+    let curr = this.head;
+    for (let i = 0; i < index; i++) {
+      curr = curr.next;
+    }
+
+    return console.log(curr.value);
+  }
 
   reverse() {}
 
@@ -167,11 +181,3 @@ export class LinkedListWithTail {
     console.log(list);
   }
 }
-
-const list = new LinkedListWithTail();
-
-list.prepend(2);
-list.prepend(1);
-list.append(3);
-list.findIndexOf(11);
-list.print();
