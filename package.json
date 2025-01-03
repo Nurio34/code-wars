@@ -1,7 +1,7 @@
 {
   "name": "code-wars",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
     "dev": "node --watch ./src/server.js",
@@ -13,5 +13,10 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^22.10.3"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
   }
 }

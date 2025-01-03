@@ -1,9 +1,11 @@
+//! *** DATA STRUCTURES ***
 import { LinkedList } from "./data-structures/3-likedList/1-linkedList.js";
 import { LinkedListWithTail } from "./data-structures/3-likedList/2-linkedListWithTail.js";
 import { LinkedListDoublePointer } from "./data-structures/3-likedList/3-likedListDoublePointry.js";
 import { HashTable } from "./data-structures/4-hashTable/index.js";
+//! *** GEMINI ***
+import { text } from "./gemini/text/text.js";
 
-const hashTable = new HashTable(6);
-const str = "ab";
+const prompt = "Explain how AI works";
 
-console.log(str.charCodeAt(1));
+// const res = await text(prompt);
