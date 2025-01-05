@@ -7,11 +7,7 @@ export default function SideNav() {
       to: "/chat",
       label: "chat",
     },
-    {
-      name: "discuss-image",
-      to: "/discuss-image",
-      label: "discuss image",
-    },
+
     {
       name: "stream-chat",
       to: "/stream-chat",

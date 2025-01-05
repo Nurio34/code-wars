@@ -4,8 +4,6 @@ import { LinkedListWithTail } from "./DSA/data-structures/3-likedList/2-linkedLi
 import { LinkedListDoublePointer } from "./DSA/data-structures/3-likedList/3-likedListDoublePointry.js";
 import { HashTable } from "./DSA/data-structures/4-hashTable/index.js";
 //! *** GEMINI ***
-import { textAndimage } from "./gemini/text/textAndimage.js";
-import { stream } from "./gemini/text/stream.js";
 //! *** APP ***
 import express from "express";
 import cookieParser from "cookie-parser";
@@ -15,7 +13,11 @@ import geminiRoutes from "./routes/gemini.js";
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/gemini", geminiRoutes);
+app.use("/api/gemini", geminiRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

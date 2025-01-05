@@ -1,12 +1,9 @@
 import { useAppSelector } from "@/store/hooks";
 import { useEffect, useRef } from "react";
-import "./index.css";
+import Thinking from "./Thinking";
+import Message from "./Message";
 
-type Props = {
-  page: string;
-};
-const ChatScreenClient = ({ page }: Props) => {
-  console.log(page);
+const ChatScreenClient = () => {
   const messages = useAppSelector((s) => s.chat.messages);
   const lastMessageId = messages.length;
   const LastMessage = useRef<HTMLLIElement | null>(null);
@@ -29,37 +26,23 @@ const ChatScreenClient = ({ page }: Props) => {
       className="overflow-y-auto h-full max-h-full"
       style={{ scrollbarWidth: "none" }}
     >
-      <ul ref={ChatContainer} className="grid gap-y-[0.5vh] max-h-0">
+      <ul ref={ChatContainer} className="grid gap-y-[1vh] max-h-0">
         {messages.map((message) => (
           <li
             ref={message.id === lastMessageId ? LastMessage : null}
             key={message.id}
-            className={`py-[0.5vh] px-[0.5vw] rounded-md max-w-[50%] ${
+            className={`py-[0.5vh] px-[0.5vw] rounded-md max-w-[75%] ${
               message.content === "Thinking" ? "bg-primary" : ""
             } ${
-              message.sender === "ai"
+              message.sender === "model"
                 ? "justify-self-start bg-blue-200"
                 : "justify-self-end bg-primary-500 bg-green-200"
             }`}
           >
             {message.content === "Thinking" ? (
-              <div className="thinking-animation">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+              <Thinking />
             ) : (
-              <ul className="grid gap-y-2">
-                {message.content
-                  .split("**")
-                  .join("")
-                  .split("*")
-                  .map((sentence, index) => (
-                    <li key={index} className="indent-4">
-                      {sentence}
-                    </li>
-                  ))}
-              </ul>
+              <Message message={message} />
             )}
           </li>
         ))}

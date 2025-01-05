@@ -1,15 +1,10 @@
 "use server";
 
-export const text = async (currentState: string, formData: FormData) => {
-  const message = formData.get("message");
-
+export const chat = async (currentState: string, formData: FormData) => {
   try {
     const res = await fetch(`${process.env.SERVER_URL}/gemini/chat`, {
       method: "POST",
-      body: JSON.stringify({ message }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body: formData,
     });
     const data = await res.json();
     if (data.status === "success") {

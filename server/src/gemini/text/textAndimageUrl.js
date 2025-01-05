@@ -1,6 +1,6 @@
 import { model } from "../model.js";
 
-async function textAndimage(imageUrl, prompt) {
+async function textAndimageUrl(imageUrl, prompt) {
   try {
     const res = await fetch(imageUrl);
     if (!res.ok) {
@@ -26,4 +26,4 @@ async function textAndimage(imageUrl, prompt) {
   }
 }
 
-export { textAndimage };
+export { textAndimageUrl };
