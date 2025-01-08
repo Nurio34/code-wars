@@ -9,6 +9,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 const app = express();
 import geminiRoutes from "./routes/gemini.js";
+import { longestCommonPrefix } from "./DSA/problems/1-longestCommonPrefix.js";
 
 app.use(express.json());
 app.use(cookieParser());
@@ -22,3 +23,5 @@ app.get("/", (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
+
+longestCommonPrefix(["a", "a", "b"]);
